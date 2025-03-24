@@ -7,7 +7,7 @@ Link base de datos: https://docs.google.com/spreadsheets/d/1pUjyNvfE7EArTESvpm94
 ## Dia 1 (24/03/2025)
 - Crear proyecto (Ruta de proyecto)
 
-- Data Profiting.
+- Data Profiling.
 
   El archivo que contiene los datos en bruto es un documento CSV (valores separados por comas) llamado "Video_games.csv". Su importación a Google Sheets se realizó sin inconvenientes.
 
