@@ -1,5 +1,7 @@
 # Project_01_Videojuegos
 
+Link base de datos: https://docs.google.com/spreadsheets/d/1pUjyNvfE7EArTESvpm94vk1OVitPBWFRTBVT4wWa8AA/edit?usp=sharing
+
 
 
   Dia 1 (24/03/2025)
