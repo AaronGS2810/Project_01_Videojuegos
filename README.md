@@ -23,12 +23,16 @@ Finalmente, para la columna Rating, también realizamos una consulta a ChatGPT y
 Hemos añadido una columna id. También hemos realizado una identificación de los duplicados, no encontrando ninguno. Para hacer un ánalisis exploratorio del datasheet dividimos entre variables categóricas y variables numéricas. Se comprueba que los valores de la columna rating correspondan con las categorías del ESRB.
 
 <details>
-  <summary>📸 Haz clic para ver la imagen</summary>
+  <summary>📸 Haz clic para ver la imagen de la distribución categórica </summary>
   ![CategoricalData](https://github.com/user-attachments/assets/4e9562b7-22b6-4210-b1e2-ef12ff21f5c6)
 
 </details>
 
+<details>
+  <summary>📸 Haz clic para ver la imagen de la distribución numérica </summary>
+  ![Numerical Data](https://github.com/user-attachments/assets/a2af12c2-4e1d-4745-be07-113207f875b8)
 
+</details>
 
 
 
@@ -39,7 +43,7 @@ Continuando con el proceso de data cleaning, se hace una búsqueda de mayúscula
 
 Como parte del proceso de normalización, en JP_Sales se cambió un registro con un valor categórico llamado "Excel". Nos dimos cuenta de que, realizando una resta de los valores de otras columnas relacionadas podíamos llegar encontrar el valor de ese registro, siendo ese valor consistente.
 
-En la columna Developer encontramos un registro con un valor numérico llamado "2015". Al realizar una busqueda concluimos que no existe ningún desarrollador con ese nombre, por lo que lo borremos.
+En la columna Developer encontramos un registro con un valor numérico llamado "2015". Al realizar una busqueda concluimos que no existe ningún desarrollador con ese nombre, por lo que lo borramos.
 
 Se borran dos registros porque no aparecían nombre ni género. Nos planteamos realizar una busqueda para intentar averiguar esa información a partir de la información de las restantes celdas, pero nos dimos cuenta de que era materialmente imposible encontrar esa información con los datos disponibles. 
 
@@ -49,7 +53,11 @@ Se cambia el formato de las columnas Sales para que los ceros se muestren con de
 
 Encontramos que en la columna Developer hay más de 500 registros en donde aparecen varios desarroladores para un mismo videojuego. Esto presenta un problema a la hora de normalizar, ya que el cliente especifica que quiere detectar a los desarrolladores más exitosos. Es por esto que el procedimiento que se ha usado para normalizar esta columna ha consistido en dividir en diferentes columnas esos registros que contienen varios desarrolladores en una misma celda con un proceso automatizado, realizar un conteo de los valores resultantes del paso anterior que esten repetidos, y buscar cuáles son los que más se repiten, lo que equivale a encontrar cuáles son los desarrolladores que más se repiten.. En esa misma columna que sustituimos los valores que terminan en ",Inc", ",Ltd" y "S,r,I" por "Inc", "Ltd" y "SrI"; para poder separar correctamente los valores en los que hay varios desarolladores que han participado en un mismo juego. El cambio no se automatizó porque eran pocos registros.
 
-Para normalizar las celdas con valores categóricos por mayúsculas y minúsculas se ha seguido el criterio de normalizar únicamente las palabras que empiecen por minúscula, automatizando la tarea con una fómula, y sustituir esa primera leta minúscula por una mayúscula.
+Para normalizar las celdas con valores categóricos por mayúsculas y minúsculas se ha seguido el criterio de normalizar únicamente las palabras que empiecen por minúscula, automatizando la tarea con una fórmula, y sustituir esa primera letra minúscula por una mayúscula.
+
+Se observó que la columna Rating tiene clasificaciones obsoletas (K-A y EC). Estas clasificaciones las hemos transformado a las utilizadas en la actualidad, que en este caso para ambas al cambio se convierten en "E".
+
+En cuanto a los missing values, las variables con las que hemos tratado esta condición, son la de Year (0.3 %)  y Publisher (1.6%). Para este caso, y debido a su insignificancia, hemos decidido eliminarlos. 
 
 Incluir los gráficos en el día 1 del README.
 
