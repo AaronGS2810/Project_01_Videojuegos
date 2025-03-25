@@ -22,6 +22,16 @@ Finalmente, para la columna Rating, también realizamos una consulta a ChatGPT y
 
 Hemos añadido una columna id. También hemos realizado una identificación de los duplicados, no encontrando ninguno. Para hacer un ánalisis exploratorio del datasheet dividimos entre variables categóricas y variables numéricas. Se comprueba que los valores de la columna rating correspondan con las categorías del ESRB.
 
+<details>
+  <summary>📸 Haz clic para ver la imagen</summary>
+  ![CategoricalData](https://github.com/user-attachments/assets/4e9562b7-22b6-4210-b1e2-ef12ff21f5c6)
+
+</details>
+
+
+
+
+
 ## Dia 2 (25/03/2025)
 - Data cleaning.
 
