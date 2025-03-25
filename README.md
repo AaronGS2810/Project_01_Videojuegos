@@ -36,7 +36,11 @@ Normalizar la columna Critic_Score en base a la columna User_Score y añadir dec
 
 Se cambia el formato de las columnas Sales para que los ceros se muestren con decimales.
 
-Encontramos que en la columna Developer hay más de 500 registros en donde aparecen varios desarroladores para un mismo videojuego. Esto presenta un problema a la hora de normalizar, ya que el cliente especifica que quiere detectar a los desarrolladores más exitosos. Es por esto que el enfoque que se ha usado para normalizar esta columna ha sido buscar cuales son los desarrolladores que más se repiten, dividir en diferentes columnas esos registros que contienen varios desarrolladores en una misma celda y, por último, realizar el análisis únicamente con los más exitosos de la columna de los más repetidos. En esa misma columna que sustituimos los valores que terminan en ",Inc", ",Ltd" y "S,r,I" por "Inc", "Ltd" y "SrI"; para poder separar correctamente los valores en los que hay varios desarolladores que han participado en un mismo juego. El cambio no se automatizó porque eran pocos registros.
+Encontramos que en la columna Developer hay más de 500 registros en donde aparecen varios desarroladores para un mismo videojuego. Esto presenta un problema a la hora de normalizar, ya que el cliente especifica que quiere detectar a los desarrolladores más exitosos. Es por esto que el procedimiento que se ha usado para normalizar esta columna ha consistido en dividir en diferentes columnas esos registros que contienen varios desarrolladores en una misma celda con un proceso automatizado, realizar un conteo de los valores resultantes del paso anterior que esten repetidos, y buscar cuáles son los que más se repiten, lo que equivale a encontrar cuáles son los desarrolladores que más se repiten.. En esa misma columna que sustituimos los valores que terminan en ",Inc", ",Ltd" y "S,r,I" por "Inc", "Ltd" y "SrI"; para poder separar correctamente los valores en los que hay varios desarolladores que han participado en un mismo juego. El cambio no se automatizó porque eran pocos registros.
+
+Para normalizar las celdas con valores categóricos por mayúsculas y minúsculas se ha seguido el criterio de normalizar únicamente las palabras que empiecen por minúscula, automatizando la tarea con una fómula, y sustituir esa primera leta minúscula por una mayúscula.
+
+Incluir los gráficos en el día 1 del README.
 
 ## Dia 3 (26/03/2025)
 - 
