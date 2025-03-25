@@ -17,13 +17,14 @@ Para comprender mejor algunos datos, realizamos un breve análisis. Consultamos 
 En el caso de Other_Sales, dimos por hecho que representaba las ventas en regiones fuera de América del Norte, Europa y Japón. Para comprobarlo, restamos el valor de NA_Sales, EU_Sales y JP_Sales a Global_Sales, obteniendo como resultado el valor de Other_Sales, lo que confirmó nuestra hipótesis.
 Finalmente, para la columna Rating, también realizamos una consulta a ChatGPT y determinamos que representa la clasificación ESRB (Entertainment Software Rating Board).
 
-
-## Dia 2 (25/03/2025)
 - Data cleaning.
 
 Hemos añadido una columna id. También hemos realizado una identificación de los duplicados, no encontrando ninguno. Para hacer un ánalisis exploratorio del datasheet dividimos entre variables categóricas y variables numéricas. Se comprueba que los valores de la columna rating correspondan con las categorías del ESRB.
 
-Se hace una búsqueda de mayúsculas y minúsculas. Se normaliza la columna Developer. Se investiga qué significa el valor tbd en la columna User_Score.
+## Dia 2 (25/03/2025)
+- Data cleaning.
+
+Continuando con el proceso de data cleaning, se hace una búsqueda de mayúsculas y minúsculas. Se investiga qué significa el valor tbd en la columna User_Score.
 
 Como parte del proceso de normalización, en JP_Sales se cambió un registro con un valor categórico llamado "Excel". Nos dimos cuenta de que, realizando una resta de los valores de otras columnas relacionadas podíamos llegar encontrar el valor de ese registro, siendo ese valor consistente.
 
