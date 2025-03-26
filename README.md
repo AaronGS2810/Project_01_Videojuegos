@@ -53,6 +53,19 @@ Se cambia el formato de las columnas Sales para que los ceros se muestren con de
 
 Encontramos que en la columna Developer hay más de 500 registros en donde aparecen varios desarroladores para un mismo videojuego. Esto presenta un problema a la hora de normalizar, ya que el cliente especifica que quiere detectar a los desarrolladores más exitosos. Es por esto que el procedimiento que se ha usado para normalizar esta columna ha consistido en dividir en diferentes columnas esos registros que contienen varios desarrolladores en una misma celda con un proceso automatizado, realizar un conteo de los valores resultantes del paso anterior que esten repetidos, y buscar cuáles son los que más se repiten, lo que equivale a encontrar cuáles son los desarrolladores que más se repiten.. En esa misma columna que sustituimos los valores que terminan en ",Inc", ",Ltd" y "S,r,I" por "Inc", "Ltd" y "SrI"; para poder separar correctamente los valores en los que hay varios desarolladores que han participado en un mismo juego. El cambio no se automatizó porque eran pocos registros.
 
+Con el objetivo de identificar al desarrollador más destacado, como se mencionó previamente, se procedió a dividir el contenido de la celda utilizando la función TRIM(INDEX(SPLIT)). Asimismo, se empleó la función IF.ERROR para manejar los casos en los que la celda se encuentra vacía.
+
+Posteriormente, en una hoja diferente, se elaboró una tabla que contiene los valores únicos de los desarrolladores y la frecuencia con la que cada uno aparece en el conjunto de datos. Una vez completada esta tabla, se regresó al dataset original, donde se crearon cuatro columnas adicionales (dado que, como máximo, se registran cuatro desarrolladores por celda). Estas columnas relacionan a cada desarrollador con la cantidad de veces que aparece, de acuerdo con la tabla de valores únicos, reflejando dicho número en la celda correspondiente.
+
+A continuación, se añadió una nueva columna en la que se aplicó la siguiente fórmula:
+
+=IF.ERROR(CHOOSE(MATCH(MAX(V2:Y2);V2:Y2;0);Q2;R2;S2;T2);"")
+
+. Se calcula el valor máximo (MAX) entre las cuatro columnas correspondientes a los desarrolladores.
+. Mediante MATCH, se determina la posición (entre cuatro posibles) del valor máximo obtenido.
+. Con CHOOSE, se selecciona el nombre del desarrollador correspondiente a dicha posición entre los previamente separados mediante SPLIT.
+. Finalmente, se utiliza IF.ERROR para que, en caso de que la celda esté vacía o se genere un error, la celda permanezca vacía.
+
 Para normalizar las celdas con valores categóricos por mayúsculas y minúsculas se ha seguido el criterio de normalizar únicamente las palabras que empiecen por minúscula, automatizando la tarea con una fórmula, y sustituir esa primera letra minúscula por una mayúscula.
 
 Se observó que la columna Rating tiene clasificaciones obsoletas (K-A y EC). Estas clasificaciones las hemos transformado a las utilizadas en la actualidad, que en este caso para ambas al cambio se convierten en "E".
@@ -62,7 +75,13 @@ En cuanto a los missing values, las variables con las que hemos tratado esta con
 Incluir los gráficos en el día 1 del README.
 
 ## Dia 3 (26/03/2025)
-- 
+- Data cleaning
+
+Una vez finalizado el primer conjunto de datos, se procedió a la conceptualización del segundo dataset. Este nuevo conjunto se basa en el primero, aunque presenta un sesgo derivado de la cantidad de valores faltantes (missing values) en determinadas categorías. Las variables de mayor relevancia en este contexto son: "Developers", "Critic_Score" y "User_Score".
+
+Para abordar esta situación, se eliminarán de manera individual los valores nulos de cada una de estas categorías, y se evaluará el impacto de dicha eliminación sobre las otras dos variables. A partir de este análisis, se determinará cuál de los tres posibles subconjuntos de datos resultantes es el más adecuado para continuar con el trabajo.
+
+En un análisis preliminar, se consideró eliminar los valores nulos correspondientes a la variable categórica "Developer", dado que presenta una menor proporción de datos faltantes. Posteriormente, en función del número de valores nulos presentes en las otras dos variables ("Critic_Score" y "User_Score"), se evaluará la posibilidad de imputarlos utilizando medidas estadísticas como la media o la mediana, o bien mediante la aplicación de algún modelo predictivo.
 
 ## Dia 4 (27/03/2025)
 - 
