@@ -1,5 +1,23 @@
 # Project_01_Videojuegos
 
+## Guión Análisis de Videojuegos
+
+🧠 CONTEXTO
+
+![Videojuegos_contexto](https://github.com/user-attachments/assets/aa743e72-dee8-4f10-a8be-1a7c4c81c737)
+
+PixelWave Studios desea analizar el mercado de videojuegos para entender mejor qué géneros, plataformas y regiones generan mayor éxito comercial. El análisis también incluye la influencia de las reseñas en el rendimiento de ventas.
+
+👨‍💼 SOLICITUD DEL CLIENTE
+“Queremos identificar qué hace exitoso a un videojuego para enfocar mejor nuestras decisiones estratégicas de desarrollo y distribución.”
+
+1. Analizar las tendencias de ventas por plataforma, género y región.
+2. Evaluar el desempeño por región y las preferencias locales.
+3. Analizar la popularidad por género según región y plataforma.
+4. Observar tendencias según el año de lanzamiento.
+5. Estudiar la relación entre reseñas y éxito comercial.
+6. Detectar distribuidores y desarrolladores más exitosos.
+
 Link base de datos: https://docs.google.com/spreadsheets/d/1pUjyNvfE7EArTESvpm94vk1OVitPBWFRTBVT4wWa8AA/edit?usp=sharing
 
 Link documento Word: https://docs.google.com/document/d/1oOG8yiG67QXCRPf4jFNlem2M2DgLApcRz7QepoSA9sQ/edit?usp=sharing
@@ -22,17 +40,12 @@ Finalmente, para la columna Rating, también realizamos una consulta a ChatGPT y
 
 Hemos añadido una columna id. También hemos realizado una identificación de los duplicados, no encontrando ninguno. Para hacer un ánalisis exploratorio del datasheet dividimos entre variables categóricas y variables numéricas. Se comprueba que los valores de la columna rating correspondan con las categorías del ESRB.
 
-<details>
-  <summary>📸 Haz clic para ver la imagen de la distribución categórica </summary>
+Imagen de la distribución categórica
   ![CategoricalData](https://github.com/user-attachments/assets/4e9562b7-22b6-4210-b1e2-ef12ff21f5c6)
 
-</details>
-
-<details>
-  <summary>📸 Haz clic para ver la imagen de la distribución numérica </summary>
+Imagen de la distribución numérica </summary>
   ![Numerical Data](https://github.com/user-attachments/assets/a2af12c2-4e1d-4745-be07-113207f875b8)
 
-</details>
 
 
 
@@ -51,20 +64,7 @@ Normalizar la columna Critic_Score en base a la columna User_Score y añadir dec
 
 Se cambia el formato de las columnas Sales para que los ceros se muestren con decimales.
 
-Encontramos que en la columna Developer hay más de 500 registros en donde aparecen varios desarroladores para un mismo videojuego. Esto presenta un problema a la hora de normalizar, ya que el cliente especifica que quiere detectar a los desarrolladores más exitosos. Es por esto que el procedimiento que se ha usado para normalizar esta columna ha consistido en dividir en diferentes columnas esos registros que contienen varios desarrolladores en una misma celda con un proceso automatizado, realizar un conteo de los valores resultantes del paso anterior que esten repetidos, y buscar cuáles son los que más se repiten, lo que equivale a encontrar cuáles son los desarrolladores que más se repiten.. En esa misma columna que sustituimos los valores que terminan en ",Inc", ",Ltd" y "S,r,I" por "Inc", "Ltd" y "SrI"; para poder separar correctamente los valores en los que hay varios desarolladores que han participado en un mismo juego. El cambio no se automatizó porque eran pocos registros.
-
-Con el objetivo de identificar al desarrollador más destacado, como se mencionó previamente, se procedió a dividir el contenido de la celda utilizando la función TRIM(INDEX(SPLIT)). Asimismo, se empleó la función IF.ERROR para manejar los casos en los que la celda se encuentra vacía.
-
-Posteriormente, en una hoja diferente, se elaboró una tabla que contiene los valores únicos de los desarrolladores y la frecuencia con la que cada uno aparece en el conjunto de datos. Una vez completada esta tabla, se regresó al dataset original, donde se crearon cuatro columnas adicionales (dado que, como máximo, se registran cuatro desarrolladores por celda). Estas columnas relacionan a cada desarrollador con la cantidad de veces que aparece, de acuerdo con la tabla de valores únicos, reflejando dicho número en la celda correspondiente.
-
-A continuación, se añadió una nueva columna en la que se aplicó la siguiente fórmula:
-
-=IF.ERROR(CHOOSE(MATCH(MAX(V2:Y2);V2:Y2;0);Q2;R2;S2;T2);"")
-
-. Se calcula el valor máximo (MAX) entre las cuatro columnas correspondientes a los desarrolladores.
-. Mediante MATCH, se determina la posición (entre cuatro posibles) del valor máximo obtenido.
-. Con CHOOSE, se selecciona el nombre del desarrollador correspondiente a dicha posición entre los previamente separados mediante SPLIT.
-. Finalmente, se utiliza IF.ERROR para que, en caso de que la celda esté vacía o se genere un error, la celda permanezca vacía.
+Se identificó que muchos videojuegos tienen múltiples desarrolladores en una misma celda, lo cual complica la normalización de datos. Para solucionarlo, se dividieron esos registros en columnas separadas, se estandarizaron ciertos sufijos como “,Inc” y se contó la frecuencia de cada desarrollador. Luego, se creó una tabla con los desarrolladores únicos y su frecuencia, y se añadieron columnas al dataset original para reflejar cuántas veces aparece cada uno. Finalmente, se usó una fórmula con MAX, MATCH y CHOOSE para determinar y mostrar al desarrollador más frecuente en cada registro.
 
 Para normalizar las celdas con valores categóricos por mayúsculas y minúsculas se ha seguido el criterio de normalizar únicamente las palabras que empiecen por minúscula, automatizando la tarea con una fórmula, y sustituir esa primera letra minúscula por una mayúscula.
 
@@ -84,7 +84,23 @@ Para abordar esta situación, se eliminarán de manera individual los valores nu
 En un análisis preliminar, se consideró eliminar los valores nulos correspondientes a la variable categórica "Developer", dado que presenta una menor proporción de datos faltantes. Posteriormente, en función del número de valores nulos presentes en las otras dos variables ("Critic_Score" y "User_Score"), se evaluará la posibilidad de imputarlos utilizando medidas estadísticas como la media o la mediana, o bien mediante la aplicación de algún modelo predictivo.
 
 ## Dia 4 (27/03/2025)
-- 
+- Visualización looker studio
+
+Representación de los distintos apartados en looker studio. 
+
+Se unificaron los 2 primeros puntos ya que se basan en lo mismo.
+
+1. Analizar las tendencias de ventas por plataforma, género y región.
+2. Evaluar el desempeño por región y las preferencias locales.
+
+Dashboard puntos 1 y 2
+
+![Apartado_01](https://github.com/user-attachments/assets/012b75de-49ea-4a5d-8be1-aae256742f70)
+
+Para el segundo apartado se comparó las ventas globales con la las Score de los usuarios y se observó una tendencia clara.
+
+![Predictor](https://github.com/user-attachments/assets/54392682-14b0-4f9a-bb7c-86da7360d453)
+
 
 ## Dia 5 (28/03/2025)
 - 
