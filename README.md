@@ -97,9 +97,22 @@ Dashboard puntos 1 y 2
 
 ![Apartado_01](https://github.com/user-attachments/assets/012b75de-49ea-4a5d-8be1-aae256742f70)
 
+Dashboard 2
+
 Para el segundo apartado se comparó las ventas globales con la las Score de los usuarios y se observó una tendencia clara.
 
 ![Predictor](https://github.com/user-attachments/assets/54392682-14b0-4f9a-bb7c-86da7360d453)
+
+Dashboard 3
+
+Se analiza la popularidad
+
+![image](https://github.com/user-attachments/assets/2a50c57d-1ed9-4dd8-80fa-90d893207aff)
+
+Dashboard 4
+
+
+
 
 
 ## Dia 5 (28/03/2025)
@@ -110,3 +123,70 @@ Para el segundo apartado se comparó las ventas globales con la las Score de los
 
 ## Dia 7 (01/04/2025)
 - 
+
+
+
+# Project_01_Videojuegos
+
+## Descripción del Proyecto
+
+PixelWave Studios desea analizar el mercado de videojuegos para entender mejor qué géneros, plataformas y regiones generan mayor éxito comercial. Este análisis también incluye la influencia de las reseñas en el éxito comercial de los videojuegos.
+
+## Solicitud del Cliente
+
+El cliente ha solicitado que identifiquemos qué hace exitoso a un videojuego para enfocar mejor sus decisiones estratégicas de desarrollo y distribución. Las tareas específicas incluyen:
+
+1. **Analizar las tendencias de ventas por plataforma, género y región.**
+2. **Evaluar el desempeño por región y las preferencias locales.**
+3. **Analizar la popularidad por género según región y plataforma.**
+4. **Observar tendencias según el año de lanzamiento.**
+5. **Estudiar la relación entre reseñas y éxito comercial.**
+6. **Detectar distribuidores y desarrolladores más exitosos.**
+
+## Base de Datos y Documentación
+
+- [Base de Datos](https://docs.google.com/spreadsheets/d/1pUjyNvfE7EArTESvpm94vk1OVitPBWFRTBVT4wWa8AA/edit?usp=sharing)
+- [Documento de Proyecto](https://docs.google.com/document/d/1oOG8yiG67QXCRPf4jFNlem2M2DgLApcRz7QepoSA9sQ/edit?usp=sharing)
+
+## Desarrollo del Proyecto
+
+### Día 1 (24/03/2025)
+
+- **Creación del Proyecto:** Establecimiento de la estructura del proyecto.
+- **Data Profiling:** Análisis inicial de los datos, incluyendo la importación del archivo CSV y la identificación de las columnas claves.
+- **Data Cleaning:** Añadido de una columna de ID, identificación y eliminación de duplicados, y creación de gráficos de distribución categórica y numérica.
+
+![Categorical Data](https://github.com/user-attachments/assets/4e9562b7-22b6-4210-b1e2-ef12ff21f5c6)
+![Numerical Data](https://github.com/user-attachments/assets/a2af12c2-4e1d-4745-be07-113207f875b8)
+
+### Día 2 (25/03/2025)
+
+- **Data Cleaning Continuado:** Normalización de valores, corrección de errores y manejo de valores faltantes.
+- **Gráficos adicionales:** Inclusión de gráficos adicionales en el README.
+
+### Día 3 (26/03/2025)
+
+- **Data Cleaning:** Conceptualización y limpieza del segundo conjunto de datos.
+
+### Día 4 (27/03/2025)
+
+- **Visualización en Looker Studio:** Creación de dashboards para representar las tendencias de ventas y la comparación de las ventas globales con las puntuaciones de los usuarios.
+
+![Apartado_01](https://github.com/user-attachments/assets/012b75de-49ea-4a5d-8be1-aae256742f70)
+![Predictor](https://github.com/user-attachments/assets/54392682-14b0-4f9a-bb7c-86da7360d453)
+
+### Día 5 (28/03/2025)
+
+- **(Actividades del día 5)**
+
+### Día 6 (31/03/2025)
+
+- **(Actividades del día 6)**
+
+### Día 7 (01/04/2025)
+
+- **(Actividades del día 7)**
+
+## Conclusiones
+
+(Agregar aquí las conclusiones del análisis una vez finalizado el proyecto.)
