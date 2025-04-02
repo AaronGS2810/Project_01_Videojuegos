@@ -22,11 +22,7 @@ Link base de datos: https://docs.google.com/spreadsheets/d/1pUjyNvfE7EArTESvpm94
 
 Link documento Word: https://docs.google.com/document/d/1oOG8yiG67QXCRPf4jFNlem2M2DgLApcRz7QepoSA9sQ/edit?usp=sharing
 
-
-## Dia 1 (24/03/2025)
-- Crear proyecto (Ruta de proyecto)
-
-- Data Profiling.
+## Data Profiling.
 
 El archivo que contiene los datos en bruto es un documento CSV (valores separados por comas) llamado "Video_games.csv". Su importación a Google Sheets se realizó sin inconvenientes.
 
@@ -36,7 +32,6 @@ Para comprender mejor algunos datos, realizamos un breve análisis. Consultamos 
 En el caso de Other_Sales, dimos por hecho que representaba las ventas en regiones fuera de América del Norte, Europa y Japón. Para comprobarlo, restamos el valor de NA_Sales, EU_Sales y JP_Sales a Global_Sales, obteniendo como resultado el valor de Other_Sales, lo que confirmó nuestra hipótesis.
 Finalmente, para la columna Rating, también realizamos una consulta a ChatGPT y determinamos que representa la clasificación ESRB (Entertainment Software Rating Board).
 
-- Data cleaning.
 
 Hemos añadido una columna id. También hemos realizado una identificación de los duplicados, no encontrando ninguno. Para hacer un ánalisis exploratorio del datasheet dividimos entre variables categóricas y variables numéricas. Se comprueba que los valores de la columna rating correspondan con las categorías del ESRB.
 
@@ -46,11 +41,7 @@ Imagen de la distribución categórica
 Imagen de la distribución numérica </summary>
   ![Numerical Data](https://github.com/user-attachments/assets/a2af12c2-4e1d-4745-be07-113207f875b8)
 
-
-
-
-## Dia 2 (25/03/2025)
-- Data cleaning.
+## Data cleaning.
 
 Continuando con el proceso de data cleaning, se hace una búsqueda de mayúsculas y minúsculas. Se investiga qué significa el valor tbd en la columna User_Score.
 
@@ -74,8 +65,6 @@ En cuanto a los missing values, las variables con las que hemos tratado esta con
 
 Incluir los gráficos en el día 1 del README.
 
-## Dia 3 (26/03/2025)
-- Data cleaning
 
 Una vez finalizado el primer conjunto de datos, se procedió a la conceptualización del segundo dataset. Este nuevo conjunto se basa en el primero, aunque presenta un sesgo derivado de la cantidad de valores faltantes (missing values) en determinadas categorías. Las variables de mayor relevancia en este contexto son: "Developers", "Critic_Score" y "User_Score".
 
@@ -83,8 +72,7 @@ Para abordar esta situación, se eliminarán de manera individual los valores nu
 
 En un análisis preliminar, se consideró eliminar los valores nulos correspondientes a la variable categórica "Developer", dado que presenta una menor proporción de datos faltantes. Posteriormente, en función del número de valores nulos presentes en las otras dos variables ("Critic_Score" y "User_Score"), se evaluará la posibilidad de imputarlos utilizando medidas estadísticas como la media o la mediana, o bien mediante la aplicación de algún modelo predictivo.
 
-## Dia 4 (27/03/2025)
-- Visualización looker studio
+## Visualización looker studio
 
 Representación de los distintos apartados en looker studio. 
 
